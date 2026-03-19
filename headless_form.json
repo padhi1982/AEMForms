@@ -1,0 +1,33 @@
+{
+    "formTitle": "Contact Form",
+    "fields": [
+        {
+            "id": "fname",
+            "label": "First Name",
+            "type": "text",
+            "required": true
+        },
+        {
+            "id": "email",
+            "label": "Email Address",
+            "type": "email",
+            "required": true
+        },
+        {
+            "id": "newsletter",
+            "label": "Subscribe to Newsletter?",
+            "type": "checkbox"
+        },
+        {
+            "id": "reason",
+            "label": "Reason for Contact",
+            "type": "dropdown",
+            "options": [
+                "Support",
+                "Sales",
+                "Other"
+            ],
+            "visible_when": "newsletter == true"
+        }
+    ]
+}
