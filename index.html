@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEM Forms Agent Workflow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature {
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .feature h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .feature p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .section {
+            margin: 40px 0;
+        }
+        
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .section h3 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .tech-item {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .tech-item strong {
+            color: #333;
+        }
+        
+        .tech-item span {
+            color: #666;
+            display: block;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .code-block {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #333;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #333;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .footer {
+            background: #f9f9f9;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .workflow-diagram {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: monospace;
+            text-align: center;
+            color: #333;
+        }
+        
+        .agent-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin: 0 5px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AEM Forms Agent Workflow</h1>
+            <p>PDF to JSON/HTML Form Conversion with AI</p>
+        </div>
+        
+        <div class="content">
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📄</div>
+                    <h3>PDF Processing</h3>
+                    <p>Extract form structure from multi-page PDF documents using advanced text parsing.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered</h3>
+                    <p>Google Gemini LLM analyzes form fields and generates structured JSON data.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Form Generation</h3>
+                    <p>Automatically generate HTML forms and AEM component specifications.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🔄 How It Works</h2>
+                <div class="workflow-diagram">
+                    PDF Upload → <span class="agent-badge">Agent 1: Parser</span> → 
+                    <span class="agent-badge">Agent 2: Builder</span> → 
+                    <span class="agent-badge">Agent 3: Mapper</span> → Output
+                </div>
+                <p><strong>Agent 1 (Parser):</strong> Extracts form structure from PDF and generates JSON schema</p>
+                <p><strong>Agent 2 (Builder):</strong> Converts JSON schema to interactive HTML form</p>
+                <p><strong>Agent 3 (Mapper):</strong> Maps form fields to AEM component specifications</p>
+            </div>
+            
+            <div class="section">
+                <h2>🚀 Quick Start</h2>
+                <h3>Installation</h3>
+                <div class="code-block">
+# Clone the repository
+git clone https://github.com/padhi1982/AEMforms.git
+cd AEMforms
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up Gemini API key
+python3 setup_gemini_simple.py
+
+# Start the application
+python3 app.py
+                </div>
+                <p>Your application will be available at <strong>http://localhost:5000</strong></p>
+            </div>
+            
+            <div class="section">
+                <h2>💻 Technology Stack</h2>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <strong>Backend</strong>
+                        <span>Flask, Python 3.9+</span>
+                    </div>
+                    <div class="tech-item">
+                        <strong>AI/ML</strong>
+                        <span>Google Gemini LLM</span>
+                    </div>
+                    <div class="tech-item">
+                        <strong>PDF Processing</strong>
+                        <span>pdfplumber, reportlab</span>
+                    </div>
+                    <div class="tech-item">
+                        <strong>Frontend</strong>
+                        <span>HTML, CSS, JavaScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <strong>Templates</strong>
+                        <span>Jinja2</span>
+                    </div>
+                    <div class="tech-item">
+                        <strong>HTML Parsing</strong>
+                        <span>BeautifulSoup</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📋 Features</h2>
+                <ul style="margin-left: 20px; color: #666; line-height: 2;">
+                    <li>✅ Multi-page PDF form extraction</li>
+                    <li>✅ AI-powered field detection (155+ fields from test document)</li>
+                    <li>✅ JSON schema generation for headless forms</li>
+                    <li>✅ Responsive HTML form generation</li>
+                    <li>✅ AEM component specification mapping</li>
+                    <li>✅ Free Google Gemini API support</li>
+                    <li>✅ Web-based GUI interface</li>
+                    <li>✅ Real-time processing with progress feedback</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>📚 Documentation</h2>
+                <p>For detailed documentation, configuration, and API reference, please see the <a href="README.md" style="color: #667eea;">README.md</a> file.</p>
+            </div>
+            
+            <div class="buttons">
+                <a href="https://github.com/padhi1982/AEMforms" class="btn btn-primary">View on GitHub</a>
+                <a href="README.md" class="btn btn-secondary">Read Documentation</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>AEM Forms Agent Workflow © 2026 | Built with ❤️ by padhi1982</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <a href="https://github.com/padhi1982/AEMforms">GitHub</a> • 
+                <a href="https://github.com/padhi1982">Profile</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
